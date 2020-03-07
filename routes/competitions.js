@@ -7,15 +7,15 @@ const upload = require('../middlewares/upload')
 const competitionsController = require('../controllers/competitions')
 
 router.post('/graduates', upload, competitionsController.graduates)
-// router.post('/undergraduates', competitionsController.undergraduates)
+router.post('/undergraduates', upload, competitionsController.undergraduates)
 
-// router.post('/schools', competitionsController.schools)
-// router.post('/techschools', competitionsController.techschools)
+router.post('/schools', upload, competitionsController.schools)
+router.post('/techschools', upload, competitionsController.techschools)
 
-// router.post('/micromouse', competitionsController.micromouse)
-// router.post('/arc6', competitionsController.arc6)
-// router.post('/spaghetti', competitionsController.spagetti)
+router.post('/micromouse', upload, competitionsController.micromouse)
+router.post('/arc6', upload, competitionsController.arc6)
+router.post('/spagetti', upload, competitionsController.spagetti)
 
-// router.post('/hackathon', competitionsController.hackathon)
+router.post('/hackathon', upload, competitionsController.hackathon)
 
 module.exports = router

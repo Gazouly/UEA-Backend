@@ -4,10 +4,25 @@ const multer = require('multer')
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '..', `uploads`))
+        if (req.path === '/graduates')
+            cb(null, path.join(__dirname, '..', `uploads/graduates`))
+        if (req.path === '/undergraduates')
+            cb(null, path.join(__dirname, '..', `uploads/undergraduates`))
+        if (req.path === '/schools')
+            cb(null, path.join(__dirname, '..', `uploads/schools`))
+        if (req.path === '/techschools')
+            cb(null, path.join(__dirname, '..', `uploads/techschools`))
+        if (req.path === '/micromouse')
+            cb(null, path.join(__dirname, '..', `uploads/micromouse`))
+        if (req.path === '/arc6')
+            cb(null, path.join(__dirname, '..', `uploads/arc6`))
+        if (req.path === '/spagetti')
+            cb(null, path.join(__dirname, '..', `uploads/spagetti`))
+        if (req.path === '/hackathon')
+            cb(null, path.join(__dirname, '..', `uploads/hackathon`))
     },
     filename: (req, file, cb) => {
-        cb(null, Math.ceil(Math.random()*1157883) + '-' + file.originalname.replace(/\s/g, ''))
+        cb(null, new Date().toISOString().replace(/:/g, '') + '-' + file.originalname.replace(/\s/g, ''))
     }
 })
 const fileFilter = (req, file, cb) => {
