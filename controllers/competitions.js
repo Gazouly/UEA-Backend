@@ -337,7 +337,7 @@ exports.arc6 = (req, res, next) => {
         leader,
         teamMembers,
         members,
-        projectFile: projectFile.filename
+        projectFile: projectFile ? projectFile.filename : "No File Provided"
     })
     project.save()
         .then(() => {
@@ -375,7 +375,7 @@ exports.spagetti = (req, res, next) => {
         leader,
         teamMembers,
         members,
-        projectFile: projectFile.filename
+        projectFile: projectFile ? projectFile.filename : "No File Provided"
     })
     project.save()
         .then(() => {

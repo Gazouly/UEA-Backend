@@ -39,7 +39,7 @@ const leaderSchema = new Schema({
     }
 }, { _id: false })
 
-const techSchoolsSechma = new Schema({
+const arcSchema = new Schema({
     teamName: {
         type: String,
         required: true
@@ -62,7 +62,7 @@ const techSchoolsSechma = new Schema({
     },
     projectFile: {
         type: String,
-        required: true
+        default: "No file provided"
     },
     leader: leaderSchema,
     teamMembers: {
@@ -72,4 +72,4 @@ const techSchoolsSechma = new Schema({
     members: [membersSchema]
 }, { timestamps: true })
 
-module.exports = mongoose.model('ARC', techSchoolsSechma, 'arc')
+module.exports = mongoose.model('ARC', arcSchema, 'arc')
