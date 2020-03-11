@@ -390,16 +390,14 @@ exports.spagetti = (req, res, next) => {
 }
 exports.hackathon = (req, res, next) => { 
     const { teamName,
-        university,
         leader,
         teamMembers,
         members
      } = req.body
     const projectFile = req.file
 
-    const { error } = validationSchemas.arcValidation.validate({
-        teamName,
-        university
+    const { error } = validationSchemas.hackathonValidation.validate({
+        teamName
     })
 
     if (error) {
@@ -409,11 +407,9 @@ exports.hackathon = (req, res, next) => {
 
     const project = new Hackathon({
         teamName,
-        university,
         leader,
         teamMembers,
-        members,
-        projectFile: projectFile.filename
+        members
     })
     project.save()
         .then(() => {

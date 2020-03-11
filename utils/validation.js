@@ -66,3 +66,10 @@ exports.arcValidation = Joi.object({
                 .required()
 
 })
+exports.hackathonValidation = Joi.object({
+        teamName: Joi.string()
+                .min(3)
+                .max(500)
+                .required()
+
+})
